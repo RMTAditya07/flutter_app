@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class DeviceAllotment extends StatelessWidget {
   final int number; // Dynamic number on the left
@@ -12,33 +13,40 @@ class DeviceAllotment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween, // Spread out items
-      children: [
-        Row(
-          children: [
-            Text(
-              number.toString(),
-              style: const TextStyle(
-                fontSize: 16.0,
-                fontWeight: FontWeight.bold,
+    return Container(
+      // width: 304,
+      // height: 50,
+        margin: const EdgeInsets.only(bottom: 12.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween, // Spread out items
+        children: [
+          Row(
+            children: [
+              Text(
+                number.toString(),
+                style: const TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            const SizedBox(width: 4.0),
-            const Icon(
-              Icons.person, // Human icon
-              size: 20.0,
-            ),
-            const SizedBox(width: 4.0),
-            const Icon(
-              Icons.arrow_forward_ios, // Angular arrow
-              size: 16.0,
-            ),
-          ],
-        ),
-        // Device Information Widget
-        deviceWidget,
-      ],
+              const SizedBox(width: 4.0),
+              SvgPicture.asset(
+                'assets/images/human.svg',
+                width: 16.0,
+                height: 16.0,
+              ),
+              const SizedBox(width: 12.0),
+              SvgPicture.asset(
+                'assets/images/arrow.svg',
+                width: 24.0,
+                height: 24.0,
+              ),
+            ],
+          ),
+          // Device Information Widget
+          deviceWidget,
+        ],
+      ),
     );
   }
 }

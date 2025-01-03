@@ -6,7 +6,7 @@ class DeviceInfoWidget extends StatelessWidget {
   final String label;
   final String deviceNumber;
   final String deviceId;
-  final MaterialColor backgroundColor;
+  final Color backgroundColor;
   final Color iconColor;
   final Color deviceNumberColor;
 
@@ -25,7 +25,7 @@ class DeviceInfoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 44,
-      width: 265,
+      width: 250,
       padding: const EdgeInsets.all(12.0),
       decoration: BoxDecoration(
         color: const Color(0xFFF1F5F9), // Use MaterialColor shade

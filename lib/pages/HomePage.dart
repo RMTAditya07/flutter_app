@@ -15,9 +15,16 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentStep = 1; // Track the current step
+  final Map<int, bool> stepCompletionStatus = {
+    1: false, // Step 1 starts as incomplete
+    2: false, // Step 2 is incomplete initially
+    3: false,
+    4: false,
+  };
 
   void goToNextStep() {
     setState(() {
+      stepCompletionStatus[currentStep] = true; 
       currentStep = 2; // Move to Step 2
     });
 
@@ -79,8 +86,8 @@ class _HomePageState extends State<HomePage> {
                       topLeft: Radius.circular(24.0),
                       topRight: Radius.circular(24.0),
                     ),
-                    // color: Color(0xFFFFFF),
-                    color: Colors.yellow,
+                    color: Colors.white,
+                    // color: Colors.yellow,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -88,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                       Text(
                         "Remove Device '4'",
                         style: TextStyle(
-                          fontSize: isTablet ? 24.0 : 18.0,
+                          fontSize: isTablet ? 16.0 : 14.0,
                           fontWeight: FontWeight.w700,
                           color: Color(0xFF18181C),
                         ),
@@ -106,7 +113,8 @@ class _HomePageState extends State<HomePage> {
                   child: Container(
                     width: double.infinity,
                     padding: const EdgeInsets.all(16.0),
-                    color: Colors.red,
+                    // color: Colors.red,
+                    color: Colors.white,
                     child: Row(
                       // crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -116,7 +124,8 @@ class _HomePageState extends State<HomePage> {
                           child: Container(
                             // padding: const EdgeInsets.all(24.0),
                             width: 206,
-                            color: Colors.blue,
+                            // color: Colors.blue,
+                            color: Colors.white,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: stepData.map((step) {
@@ -124,6 +133,7 @@ class _HomePageState extends State<HomePage> {
                                   step['title'],
                                   step['description'],
                                   isActive: step['index'] == currentStep,
+                                  isCompleted: stepCompletionStatus[step['index']] ?? false,
                                   isLast: step['index'] == stepData.length,
                                 );
                               }).toList(),
@@ -172,7 +182,7 @@ class _HomePageState extends State<HomePage> {
                                             'assets/images/info.svg',
                                             height: 24,
                                             width: 24,
-                                            color: Colors.green,
+                                            // color: Colors.green,
                                           ),
                                         ],
                                       ),
@@ -186,7 +196,7 @@ class _HomePageState extends State<HomePage> {
                                         'data loss, connect it to the internet, sync the '
                                         'data, and then proceed.',
                                         style: TextStyle(
-                                          fontSize: isTablet ? 16.0 : 14.0,
+                                          fontSize: isTablet ? 14.0 : 12.0,
                                           color: Color(0xFF808B9A),
                                           fontWeight: FontWeight.w500,
                                           // height: 3,
@@ -279,7 +289,7 @@ class _HomePageState extends State<HomePage> {
                       bottomLeft: Radius.circular(24.0),
                       bottomRight: Radius.circular(24.0),
                     ),
-                    color: Color(0xFFFFFF),
+                    color: Colors.white,
                   ),
                   child: ModalFooter(
                     backButtonText: 'Back',

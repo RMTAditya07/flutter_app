@@ -71,6 +71,10 @@ flutter:
     - assets/images/success_banner.svg
     - assets/images/success_icon.svg
     - assets/images/success_line.svg
+    - assets/images/info.svg
+    - assets/images/info_purple.svg
+    - assets/images/human.svg
+    - assets/images/arrow.svg
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

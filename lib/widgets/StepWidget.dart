@@ -55,7 +55,7 @@ class StepWidget extends StatelessWidget {
                 child: SvgPicture.asset(
                   'assets/images/inprogress.svg',
                   height: 36,
-                  color: Colors.red,
+                  // color: Colors.red,
                 ),
               ),
             if (isCompleted)
